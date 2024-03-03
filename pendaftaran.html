@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Halaman Beranda</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Nabila Carrissa Dewi">
+        <meta name="nim" content="234311021">
+        <link rel='stylesheet' href="html_advance/css/main.css">
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+          }
+      
+          table {
+            border-collapse: collapse;
+            width: 100%;
+          }
+      
+          th, td {
+            font: 1em sans-serif;
+            border: 1px solid black;
+            padding: 5px;
+          }
+      
+          td {
+            border: none;
+          }
+      
+          td:first-child {
+            width: 30%; /* Mengatur lebar kolom pertama */
+            white-space: nowrap; /* Mencegah wrap teks */
+          }
+      
+          td:last-child {
+            width: 70%; /* Mengatur lebar kolom kedua */
+          }
+      
+          fieldset {
+            width: 40%; /* Mengatur lebar fieldset */
+            margin: 0 auto; /* Posisi tengah */
+          }
+      
+          legend {
+            font-size: 1.2em; /* Ukuran huruf legenda */
+            margin-bottom: 5px; /* Mengurangi jarak bawah */
+          }
+      
+          .button-container {
+            text-align: center; /* Mengatur posisi tombol di tengah */
+            margin-top: 20px; /* Menambahkan ruang atas */
+          }
+      
+          input[type="submit"],
+          input[type="reset"] {
+            width: auto; /* Lebar tombol mengikuti konten */
+            margin: 0 10px; /* Jarak antara tombol */
+            padding: 10px 20px; /* Padding tombol */
+            cursor: pointer; /* Mengubah cursor menjadi tangan saat dihover */
+          }
+          .hidden-phone {
+        color: transparent; /* Menjadikan teks transparan */
+        text-shadow: none; /* Menghilangkan bayangan teks yang mungkin ada */
+        }
+        </style>
+        </head>
+        <body>
+        <form action="/submit_pertemuan" method="post">
+                <h1> Form Penjadwalan Pertemuan </h1>
+          <fieldset>
+            <legend>Informasi Pribadi</legend>
+            <table width="700px" cellpadding="0">
+              <tr>
+                <td width="500px" nowrap>
+                    <strong>Nama</strong>
+                </td>
+                <td width="500px" nowrap>
+                    <input type="text" name="nama"required>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <strong>No.Telepon</strong> 
+                </td>
+                <td width="500px" nowrap>
+                    <input type="text" id="telepon" name="telepon" maxlength="11" oninput="formatTelepon(this)" required>
+                </td>
+                </tr>
+                <td width="500px" nowrap>
+                    <strong>Alamat Email</strong>
+                </td>
+                <td width="500px">
+                    <input type="email" name="alamat_email" required>
+                </td>
+                </tr>
+                <td width="500px" nowrap>
+                    <strong>Tempat Tanggal Lahir</strong>
+                </td>
+                <td width="500px"nowrap>
+                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" min="1987-01-01" max="1993-01-01" required>
+                </td>
+            </table>
+            </fieldset><br>
+            <fieldset>
+                <legend>Permintaan Pertemuan</legend>
+                <table width="700px" cellpadding="0">
+                    <tr>
+                        <td width="500px" nowrap>
+                            <strong>Tujuan Pertemuan</strong>
+                        </td>
+                        <td>
+                            <input type="text" name="tujuan_pertemuan" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Tingkat Kepentingan</strong>
+                        </td>
+                        <td>
+                            <input type="range" id="tingkat_kepentingan" name="tingkat_kepentingan" min="0" max="10" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Tanggal</strong>
+                        </td>
+                        <td>
+                            <input type="date" id="tanggal" name="tanggal" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Waktu</strong>
+                        </td>
+                        <td>
+                            <input type="time" id="jam" name="jam" min="17:00" max="21:00" required>
+                        </td>
+                    </tr>
+                </table><br>
+            </fieldset>
+            <div class="button-container">
+                <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
